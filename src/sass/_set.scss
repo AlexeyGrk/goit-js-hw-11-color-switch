@@ -143,6 +143,7 @@ body.dark-theme {
   height: 300px;
   object-fit: cover;
   max-width: 100%;
+  z-index: 501;
 }
 
 .card__name {
@@ -223,4 +224,8 @@ body.dark-theme {
 
 .button__icon {
   margin-right: 8px;
+}
+.darkmode-layer,
+.darkmode-toggle {
+  z-index: 500;
 }
