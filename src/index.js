@@ -27,6 +27,7 @@ const Theme = {
 const controllerBtnThemeRef = document.querySelector('#theme-switch-toggle ');
 
 const currentTheme = localStorage.getItem('theme');
+console.log(currentTheme);
 
 if (currentTheme) {
   document.body.classList.toggle(currentTheme);
