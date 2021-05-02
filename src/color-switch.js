@@ -14,9 +14,6 @@ refs.startBtn.addEventListener('click', changeBodyRandomColor);
 refs.stopBtn.addEventListener('click', clearIntervalColor);
 
 function changeBodyRandomColor() {
-  if (isActive) {
-    return;
-  }
   intervalColor = setInterval(() => {
     const randomColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
     //   console.log(randomColor);
