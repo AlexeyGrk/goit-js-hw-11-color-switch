@@ -8,16 +8,25 @@ const refs = {
   stopBtn: document.querySelector('button[data-action=stop]'),
 };
 let intervalColor = undefined;
+let isActive = false;
 
 refs.startBtn.addEventListener('click', changeBodyRandomColor);
 refs.stopBtn.addEventListener('click', clearIntervalColor);
+
 function changeBodyRandomColor() {
+  if (isActive) {
+    return;
+  }
   intervalColor = setInterval(() => {
     const randomColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
     //   console.log(randomColor);
     document.body.style.backgroundColor = randomColor;
+    isActive = true;
+    refs.startBtn.disabled = true;
   }, 1000);
 }
 function clearIntervalColor() {
+  isActive = false;
+  refs.startBtn.disabled = false;
   clearInterval(intervalColor);
 }
