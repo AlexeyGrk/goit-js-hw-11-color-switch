@@ -7,13 +7,16 @@ const refs = {
   startBtn: document.querySelector('button[data-action=start]'),
   stopBtn: document.querySelector('button[data-action=stop]'),
 };
-let intervalColor = undefined;
+let intervalColor = null;
 let isActive = false;
 
 refs.startBtn.addEventListener('click', changeBodyRandomColor);
 refs.stopBtn.addEventListener('click', clearIntervalColor);
 
 function changeBodyRandomColor() {
+  if (isActive) {
+    return;
+  }
   intervalColor = setInterval(() => {
     const randomColor = colors[randomIntegerFromInterval(0, colors.length - 1)];
     //   console.log(randomColor);
